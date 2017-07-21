@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		29BE7C0C1F1FD43100DFE34B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C0B1F1FD43100DFE34B /* main.m */; };
 		29BE7C0F1F1FD43100DFE34B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C0E1F1FD43100DFE34B /* AppDelegate.m */; };
-		29BE7C121F1FD43100DFE34B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C111F1FD43100DFE34B /* ViewController.m */; };
+		29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */; };
 		29BE7C151F1FD43100DFE34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE7C131F1FD43100DFE34B /* Main.storyboard */; };
 		29BE7C171F1FD43100DFE34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29BE7C161F1FD43100DFE34B /* Assets.xcassets */; };
 		29BE7C1A1F1FD43100DFE34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE7C181F1FD43100DFE34B /* LaunchScreen.storyboard */; };
 		29BE7C251F1FD43100DFE34B /* newsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C241F1FD43100DFE34B /* newsAppTests.m */; };
 		29BE7C301F1FD43200DFE34B /* newsAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C2F1F1FD43200DFE34B /* newsAppUITests.m */; };
+		29BE7C421F1FE55C00DFE34B /* KSVNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C411F1FE55C00DFE34B /* KSVNewsTableViewCell.m */; };
+		29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296811F1FEB7000A9F292 /* KSVDataManager.m */; };
+		29C296861F1FEF7B00A9F292 /* KSVAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296851F1FEF7B00A9F292 /* KSVAccessToken.m */; };
+		29C296891F211B8E00A9F292 /* KSVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296881F211B8E00A9F292 /* KSVNews.m */; };
 		5C4D54FFE6F9656DC02A0FE8 /* libPods-newsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FF5C12F2C735588428A03F /* libPods-newsApp.a */; };
 		895323E9EF653430DD40CFA6 /* libPods-newsAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0DF9B3BD4A78530C83508F /* libPods-newsAppUITests.a */; };
 		E251E9906BFC5953499E47C1 /* libPods-newsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6A2A9895E85A2FE3ACC5C0 /* libPods-newsAppTests.a */; };
@@ -43,8 +47,8 @@
 		29BE7C0B1F1FD43100DFE34B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29BE7C0D1F1FD43100DFE34B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		29BE7C0E1F1FD43100DFE34B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		29BE7C101F1FD43100DFE34B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		29BE7C111F1FD43100DFE34B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		29BE7C101F1FD43100DFE34B /* KSVNewsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSVNewsTableViewController.h; sourceTree = "<group>"; };
+		29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSVNewsTableViewController.m; sourceTree = "<group>"; };
 		29BE7C141F1FD43100DFE34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29BE7C161F1FD43100DFE34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29BE7C191F1FD43100DFE34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +59,14 @@
 		29BE7C2B1F1FD43200DFE34B /* newsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BE7C2F1F1FD43200DFE34B /* newsAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = newsAppUITests.m; sourceTree = "<group>"; };
 		29BE7C311F1FD43200DFE34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29BE7C401F1FE55C00DFE34B /* KSVNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVNewsTableViewCell.h; sourceTree = "<group>"; };
+		29BE7C411F1FE55C00DFE34B /* KSVNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVNewsTableViewCell.m; sourceTree = "<group>"; };
+		29C296801F1FEB7000A9F292 /* KSVDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVDataManager.h; sourceTree = "<group>"; };
+		29C296811F1FEB7000A9F292 /* KSVDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDataManager.m; sourceTree = "<group>"; };
+		29C296841F1FEF7B00A9F292 /* KSVAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVAccessToken.h; sourceTree = "<group>"; };
+		29C296851F1FEF7B00A9F292 /* KSVAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVAccessToken.m; sourceTree = "<group>"; };
+		29C296871F211B8E00A9F292 /* KSVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVNews.h; sourceTree = "<group>"; };
+		29C296881F211B8E00A9F292 /* KSVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVNews.m; sourceTree = "<group>"; };
 		6ADF8AFFD2D27DE8FB440D65 /* Pods-newsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-newsAppUITests/Pods-newsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		73FC6DD846553CB69E3F8427 /* Pods-newsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-newsAppUITests/Pods-newsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F0DF9B3BD4A78530C83508F /* libPods-newsAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newsAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,10 +130,12 @@
 		29BE7C091F1FD43100DFE34B /* newsApp */ = {
 			isa = PBXGroup;
 			children = (
+				29C296831F1FEEBE00A9F292 /* AccessToken */,
+				29C2967F1F1FEAE800A9F292 /* DataManager */,
+				29BE7C3D1F1FE47000DFE34B /* Controllers */,
+				29C2967E1F1FEAD900A9F292 /* Model */,
 				29BE7C0D1F1FD43100DFE34B /* AppDelegate.h */,
 				29BE7C0E1F1FD43100DFE34B /* AppDelegate.m */,
-				29BE7C101F1FD43100DFE34B /* ViewController.h */,
-				29BE7C111F1FD43100DFE34B /* ViewController.m */,
 				29BE7C131F1FD43100DFE34B /* Main.storyboard */,
 				29BE7C161F1FD43100DFE34B /* Assets.xcassets */,
 				29BE7C181F1FD43100DFE34B /* LaunchScreen.storyboard */,
@@ -155,6 +169,52 @@
 				29BE7C311F1FD43200DFE34B /* Info.plist */,
 			);
 			path = newsAppUITests;
+			sourceTree = "<group>";
+		};
+		29BE7C3D1F1FE47000DFE34B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29BE7C101F1FD43100DFE34B /* KSVNewsTableViewController.h */,
+				29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */,
+				29BE7C3F1F1FE52A00DFE34B /* KSVNewsTableCell */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		29BE7C3F1F1FE52A00DFE34B /* KSVNewsTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				29BE7C401F1FE55C00DFE34B /* KSVNewsTableViewCell.h */,
+				29BE7C411F1FE55C00DFE34B /* KSVNewsTableViewCell.m */,
+			);
+			name = KSVNewsTableCell;
+			sourceTree = "<group>";
+		};
+		29C2967E1F1FEAD900A9F292 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29C296871F211B8E00A9F292 /* KSVNews.h */,
+				29C296881F211B8E00A9F292 /* KSVNews.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		29C2967F1F1FEAE800A9F292 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				29C296801F1FEB7000A9F292 /* KSVDataManager.h */,
+				29C296811F1FEB7000A9F292 /* KSVDataManager.m */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		29C296831F1FEEBE00A9F292 /* AccessToken */ = {
+			isa = PBXGroup;
+			children = (
+				29C296841F1FEF7B00A9F292 /* KSVAccessToken.h */,
+				29C296851F1FEF7B00A9F292 /* KSVAccessToken.m */,
+			);
+			name = AccessToken;
 			sourceTree = "<group>";
 		};
 		AE4E6B9C50558C1007292388 /* Frameworks */ = {
@@ -463,8 +523,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29BE7C121F1FD43100DFE34B /* ViewController.m in Sources */,
+				29C296891F211B8E00A9F292 /* KSVNews.m in Sources */,
+				29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */,
+				29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */,
+				29BE7C421F1FE55C00DFE34B /* KSVNewsTableViewCell.m in Sources */,
 				29BE7C0F1F1FD43100DFE34B /* AppDelegate.m in Sources */,
+				29C296861F1FEF7B00A9F292 /* KSVAccessToken.m in Sources */,
 				29BE7C0C1F1FD43100DFE34B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +777,7 @@
 				29BE7C361F1FD43200DFE34B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29BE7C371F1FD43200DFE34B /* Build configuration list for PBXNativeTarget "newsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +786,7 @@
 				29BE7C391F1FD43200DFE34B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		29BE7C3A1F1FD43200DFE34B /* Build configuration list for PBXNativeTarget "newsAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +795,7 @@
 				29BE7C3C1F1FD43200DFE34B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

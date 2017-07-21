@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UIViewController
+@interface KSVNewsTableViewController : UITableViewController
+
+- (IBAction)refreshAction:(UIBarButtonItem *)sender;
+
 
 
 @end
