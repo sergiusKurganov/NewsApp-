@@ -14,8 +14,11 @@
 #import "KSVNews.h"
 
 #import "UIImageView+AFNetworking.h"
+#import "UINavigationBar+UINavigationBar_Translocation.h"
 
-@interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate>
+#define NAVBAR_CHANGE_POINT 50
+
+@interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -24,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+      [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+       
     UIBarButtonItem *graphButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ImageTypesize"]
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self
@@ -35,6 +40,20 @@
     [self.newsImageView setImageWithURL:self.news.urlImage];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.tableView.delegate = self;
+    [self scrollViewDidScroll:self.tableView];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tableView.delegate = nil;
+    [self.navigationController.navigationBar lt_reset];
+}
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,10 +127,25 @@
         
     }
 }
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+ 
+    UIColor * color = [UIColor colorWithRed:0/255.0 green:174/255.0 blue:197/255.0 alpha:1];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > NAVBAR_CHANGE_POINT) {
+        CGFloat alpha = MIN(1, 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64));
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+    } else {
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+    }
+}
+
 
 #pragma mark -Action
 - (void) graphButton {
-    NSLog(@"");
+    NSLog(@"graphButton");
 }
 
 @end

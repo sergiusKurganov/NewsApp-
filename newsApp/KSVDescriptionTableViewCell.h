@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface KSVDescriptionTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoByImageButton;
 @property (weak, nonatomic) IBOutlet UIButton *infoByNewsButton;

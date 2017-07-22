@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292191081F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 292191071F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m */; };
 		29BE7C0C1F1FD43100DFE34B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C0B1F1FD43100DFE34B /* main.m */; };
 		29BE7C0F1F1FD43100DFE34B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C0E1F1FD43100DFE34B /* AppDelegate.m */; };
 		29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		039CE42E653FD040895AF20D /* Pods-newsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-newsAppTests/Pods-newsAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		292191061F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+UINavigationBar_Translocation.h"; sourceTree = "<group>"; };
+		292191071F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+UINavigationBar_Translocation.m"; sourceTree = "<group>"; };
 		29BE7C071F1FD43100DFE34B /* newsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BE7C0B1F1FD43100DFE34B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29BE7C0D1F1FD43100DFE34B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				29BE7C181F1FD43100DFE34B /* LaunchScreen.storyboard */,
 				29BE7C1B1F1FD43100DFE34B /* Info.plist */,
 				29BE7C0A1F1FD43100DFE34B /* Supporting Files */,
+				292191061F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.h */,
+				292191071F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m */,
 			);
 			path = newsApp;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F8E91E1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m in Sources */,
+				292191081F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m in Sources */,
 				29C296891F211B8E00A9F292 /* KSVNews.m in Sources */,
 				29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */,
 				29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */,

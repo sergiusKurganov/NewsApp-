@@ -36,9 +36,25 @@ static NSInteger firstRequestlPage = 1;
     NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [UIColor whiteColor],NSForegroundColorAttributeName,
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
+    
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
     
+    UIColor * color = [UIColor colorWithRed:0/255.0 green:174/255.0 blue:197/255.0 alpha:1];
+    
+    self.navigationController.navigationBar.backgroundColor = color;
+    self.navigationController.navigationBar.barTintColor = color;
+    
     [self getNewsFromServer:firstRequestlPage];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:YES];
+    
+    UIColor * color = [UIColor colorWithRed:0/255.0 green:174/255.0 blue:197/255.0 alpha:1];
+    
+    self.navigationController.navigationBar.backgroundColor = color;
+    self.navigationController.navigationBar.barTintColor = color;
 }
 
 #pragma MARK - API
