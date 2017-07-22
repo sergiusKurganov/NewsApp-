@@ -32,7 +32,7 @@
     
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
     
-    [self.newsImageView setImageWithURL:self.news.urlThumbnail];
+    [self.newsImageView setImageWithURL:self.news.urlImage];
 }
 
 
@@ -102,7 +102,7 @@
         
         newsCell.textNewsLabel.text = news.title;
         newsCell.dateNewsLabel.text = news.createdDatePost;
-        [newsCell.newsImageView setImageWithURL:news.urlImage];
+        [newsCell.newsImageView setImageWithURL:news.urlThumbnail];
         
         return newsCell;
         

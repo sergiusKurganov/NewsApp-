@@ -139,6 +139,7 @@
 		29BE7C091F1FD43100DFE34B /* newsApp */ = {
 			isa = PBXGroup;
 			children = (
+				29BE7C3F1F1FE52A00DFE34B /* Cells */,
 				29C296831F1FEEBE00A9F292 /* AccessToken */,
 				29C2967F1F1FEAE800A9F292 /* DataManager */,
 				29BE7C3D1F1FE47000DFE34B /* Controllers */,
@@ -187,7 +188,6 @@
 				29F8E91C1F22B6EC001C3155 /* KSVDetailNewsTableViewController.h */,
 				29BE7C101F1FD43100DFE34B /* KSVNewsTableViewController.h */,
 				29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */,
-				29BE7C3F1F1FE52A00DFE34B /* Cells */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
