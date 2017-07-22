@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSURL* urlImage;
 @property (strong, nonatomic) NSURL* urlThumbnail;
 @property (strong, nonatomic) NSString* title;
+@property (strong, nonatomic) NSString* idNews;
 
 - (id) initWirhServerResponse:(NSDictionary* ) responseObject;
 @end

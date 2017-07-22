@@ -36,7 +36,9 @@
             NSURL *urlImage = [NSURL URLWithString:stringThumbnailUrl];
             self.urlThumbnail = urlImage;
 
-        }   
+        }
+        
+        self.idNews = [responseObject objectForKey:@"id"];
     }
     return self;
 }

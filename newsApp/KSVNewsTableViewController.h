@@ -13,7 +13,5 @@
 
 - (IBAction)refreshAction:(UIBarButtonItem *)sender;
 
-
-
 @end
 

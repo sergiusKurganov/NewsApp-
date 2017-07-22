@@ -5,27 +5,31 @@
 //  Created by Сергей Курганов on 19.07.17.
 //  Copyright © 2017 Курганов Сергей. All rights reserved.
 //
-
+#import "KSVDetailNewsTableViewController.h"
 #import "KSVNewsTableViewController.h"
 #import "KSVNewsTableViewCell.h"
 #import "KSVDataManager.h"
 #import "KSVNews.h"
+
 #import <UIImageView+AFNetworking.h>
 
 @interface KSVNewsTableViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray* newsArray;
-@property (assign, nonatomic) BOOL refreshBool;
 @property (assign, nonatomic) NSInteger* limit;
-
+@property (assign, nonatomic) NSInteger page;
+@property (assign, nonatomic) NSInteger selectedIndexPath;
 @end
 
 @implementation KSVNewsTableViewController
 
-static NSInteger totalLimit = 20;
 static NSInteger totalPage = 2;
+static NSInteger totalLimit = 20;
+static NSInteger firstRequestlPage = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.page = 1;
     
     self.newsArray = [NSMutableArray array];
     
@@ -34,13 +38,14 @@ static NSInteger totalPage = 2;
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
     
-    [self getNewsFromServer];
+    [self getNewsFromServer:firstRequestlPage];
 }
 
 #pragma MARK - API
-- (void) getNewsFromServer {
+
+- (void) getNewsFromServer:(NSInteger) page {
     
-    [[KSVDataManager sharedManager] getNewsWhithPage:1 andLimit:10
+    [[KSVDataManager sharedManager] getNewsWhithPage:page andLimit:totalLimit
            OnSuccess:^(NSArray *newsArray) {
             
                [self.newsArray  addObjectsFromArray:newsArray];
@@ -63,24 +68,29 @@ static NSInteger totalPage = 2;
     
 }
 #pragma mark - UITableViewDelegate
+
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"index %ld", (long)indexPath.row);
-   
-    CGFloat currentPosition = (totalLimit * 0.5f) - 1;
     
-    if ((indexPath.row >= currentPosition) && ((int)self.limit < totalLimit) ) {
-        NSLog(@"GET");
+    CGFloat currentPosition = (int)self.newsArray.count;
+    
+    if ((indexPath.row >= currentPosition - 1) && (self.page < totalPage) ) {
         
-        self.limit = self.limit + 10;
-       
-        [self getNewsFromServer];
+        self.page = self.page + 1;
+        
+        [self getNewsFromServer: self.page];
+  
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+      self.selectedIndexPath = indexPath.row;
+    
       [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [self.newsArray count];
@@ -109,22 +119,36 @@ static NSInteger totalPage = 2;
                                   });
                               } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
                                   
-                                  
-                                  
                               }];
     
     return cell;
 }
 
+#pragma mark - Segue
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    KSVDetailNewsTableViewController* vc = [segue destinationViewController];
+    KSVNews* selectedNews = [self.newsArray objectAtIndex:self.selectedIndexPath];
+    
+    vc.news = selectedNews;
+    vc.newsVc = self;
+    vc.title = @"Новости";
+    vc.newsArray = self.newsArray;
+}
+
 #pragma mark - Action
 - (IBAction)refreshAction:(UIBarButtonItem *) sender {
-    
-    self.limit = 0;
     
     [self.newsArray removeAllObjects];
     
     [self.tableView reloadData];
+    
+    self.page = firstRequestlPage;
+    self.limit = 0;
+    self.page = 1;
 
-    [self getNewsFromServer];
+    [self getNewsFromServer:firstRequestlPage];
 }
+
 @end

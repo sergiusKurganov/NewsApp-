@@ -19,6 +19,9 @@
 		29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296811F1FEB7000A9F292 /* KSVDataManager.m */; };
 		29C296861F1FEF7B00A9F292 /* KSVAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296851F1FEF7B00A9F292 /* KSVAccessToken.m */; };
 		29C296891F211B8E00A9F292 /* KSVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296881F211B8E00A9F292 /* KSVNews.m */; };
+		29F8E91E1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E91D1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m */; };
+		29F8E9211F22E146001C3155 /* KSVHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E9201F22E146001C3155 /* KSVHeaderTableViewCell.m */; };
+		29F8E9241F22E181001C3155 /* KSVDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E9231F22E181001C3155 /* KSVDescriptionTableViewCell.m */; };
 		5C4D54FFE6F9656DC02A0FE8 /* libPods-newsApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FF5C12F2C735588428A03F /* libPods-newsApp.a */; };
 		895323E9EF653430DD40CFA6 /* libPods-newsAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0DF9B3BD4A78530C83508F /* libPods-newsAppUITests.a */; };
 		E251E9906BFC5953499E47C1 /* libPods-newsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA6A2A9895E85A2FE3ACC5C0 /* libPods-newsAppTests.a */; };
@@ -67,6 +70,12 @@
 		29C296851F1FEF7B00A9F292 /* KSVAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVAccessToken.m; sourceTree = "<group>"; };
 		29C296871F211B8E00A9F292 /* KSVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVNews.h; sourceTree = "<group>"; };
 		29C296881F211B8E00A9F292 /* KSVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVNews.m; sourceTree = "<group>"; };
+		29F8E91C1F22B6EC001C3155 /* KSVDetailNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVDetailNewsTableViewController.h; sourceTree = "<group>"; };
+		29F8E91D1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDetailNewsTableViewController.m; sourceTree = "<group>"; };
+		29F8E91F1F22E146001C3155 /* KSVHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVHeaderTableViewCell.h; sourceTree = "<group>"; };
+		29F8E9201F22E146001C3155 /* KSVHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVHeaderTableViewCell.m; sourceTree = "<group>"; };
+		29F8E9221F22E181001C3155 /* KSVDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		29F8E9231F22E181001C3155 /* KSVDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDescriptionTableViewCell.m; sourceTree = "<group>"; };
 		6ADF8AFFD2D27DE8FB440D65 /* Pods-newsAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-newsAppUITests/Pods-newsAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		73FC6DD846553CB69E3F8427 /* Pods-newsAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newsAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-newsAppUITests/Pods-newsAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F0DF9B3BD4A78530C83508F /* libPods-newsAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-newsAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,20 +183,26 @@
 		29BE7C3D1F1FE47000DFE34B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				29F8E91D1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m */,
+				29F8E91C1F22B6EC001C3155 /* KSVDetailNewsTableViewController.h */,
 				29BE7C101F1FD43100DFE34B /* KSVNewsTableViewController.h */,
 				29BE7C111F1FD43100DFE34B /* KSVNewsTableViewController.m */,
-				29BE7C3F1F1FE52A00DFE34B /* KSVNewsTableCell */,
+				29BE7C3F1F1FE52A00DFE34B /* Cells */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		29BE7C3F1F1FE52A00DFE34B /* KSVNewsTableCell */ = {
+		29BE7C3F1F1FE52A00DFE34B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				29BE7C401F1FE55C00DFE34B /* KSVNewsTableViewCell.h */,
 				29BE7C411F1FE55C00DFE34B /* KSVNewsTableViewCell.m */,
+				29F8E91F1F22E146001C3155 /* KSVHeaderTableViewCell.h */,
+				29F8E9201F22E146001C3155 /* KSVHeaderTableViewCell.m */,
+				29F8E9221F22E181001C3155 /* KSVDescriptionTableViewCell.h */,
+				29F8E9231F22E181001C3155 /* KSVDescriptionTableViewCell.m */,
 			);
-			name = KSVNewsTableCell;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		29C2967E1F1FEAD900A9F292 /* Model */ = {
@@ -523,11 +538,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F8E91E1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m in Sources */,
 				29C296891F211B8E00A9F292 /* KSVNews.m in Sources */,
 				29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */,
 				29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */,
 				29BE7C421F1FE55C00DFE34B /* KSVNewsTableViewCell.m in Sources */,
+				29F8E9241F22E181001C3155 /* KSVDescriptionTableViewCell.m in Sources */,
 				29BE7C0F1F1FD43100DFE34B /* AppDelegate.m in Sources */,
+				29F8E9211F22E146001C3155 /* KSVHeaderTableViewCell.m in Sources */,
 				29C296861F1FEF7B00A9F292 /* KSVAccessToken.m in Sources */,
 				29BE7C0C1F1FD43100DFE34B /* main.m in Sources */,
 			);
@@ -687,6 +705,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KSV.newsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -701,6 +720,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KSV.newsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
