@@ -19,15 +19,27 @@
 #define NAVBAR_CHANGE_POINT 50
 
 @interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@property (assign, nonatomic) NSInteger page;
+@property (strong, nonatomic) NSMutableArray* newsArray;
+@property (assign, nonatomic) NSInteger countTypeSize;
 
 @end
 
 @implementation KSVDetailNewsTableViewController
 
+static NSInteger totalPage = 2;
+static NSInteger totalLimit = 20;
+static NSInteger firstRequestlPage = 1;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-      [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    self.page = firstRequestlPage;
+    self.countTypeSize = KSVTypeSizeStandart;
+    
+    self.newsArray = [NSMutableArray array];
+    
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
        
     UIBarButtonItem *graphButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ImageTypesize"]
                                                                     style:UIBarButtonItemStylePlain
@@ -38,6 +50,38 @@
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -80.f) forBarMetrics:UIBarMetricsDefault];
     
     [self.newsImageView setImageWithURL:self.news.urlImage];
+    
+    [self getNewsFromServer:firstRequestlPage];
+}
+
+#pragma MARK - API
+
+- (void) getNewsFromServer:(NSInteger) page {
+    
+    [[KSVDataManager sharedManager] getNewsWhithPage:page andLimit:totalLimit
+                                           OnSuccess:^(NSArray *newsArray) {
+                   
+              [self.newsArray  addObjectsFromArray:newsArray];
+                                               
+            
+              NSMutableArray* newPath = [NSMutableArray array];
+               
+               for (int i = (int)[self.newsArray count] - (int)[newsArray count] ; i < [self.newsArray count]; i++) {
+                   [newPath addObject:[NSIndexPath indexPathForRow:i + 2 inSection:0]];
+               }
+               
+               [self.tableView beginUpdates];
+               
+               [self.tableView insertRowsAtIndexPaths:newPath withRowAnimation:UITableViewRowAnimationTop];
+               
+               [self.tableView endUpdates];
+               
+                                        
+                                           
+                                       } onFailure:^(NSError *error, NSInteger statusCode) {
+                                           
+                                       }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,13 +103,27 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
-        return 120.f;
+        return 100.f;
     } else if (indexPath.row == 1) {
         return 240.f;
     } else {
         return 150.f;
     }
 }
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat currentPosition = (int)self.newsArray.count + 2;
+    
+    if ((indexPath.row >= currentPosition - 1) && (self.page < totalPage) ) {
+        
+        self.page = self.page + 1;
+        
+        [self getNewsFromServer: self.page];
+        
+    }
+}
+
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -79,13 +137,14 @@
         
         vc.news = news;
         vc.title = @"Новости";
-        vc.newsArray = self.newsArray;
+        vc.selectedIndex = indexPath.row;
         
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 #pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.newsArray count] + 2;
 }
@@ -100,6 +159,21 @@
        
         KSVHeaderTableViewCell* headerCell = [tableView dequeueReusableCellWithIdentifier:cellHeaderIdentifier forIndexPath:indexPath];
         
+        switch (self.countTypeSize) {
+            case KSVTypeSizeStandart:
+                headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 17.5f];
+                headerCell.datePostLabel.font = [UIFont systemFontOfSize: 12.5f];
+            case KSVTypeSizeFirst:
+                headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 18.5f];
+                headerCell.datePostLabel.font = [UIFont systemFontOfSize: 13.5f];
+            case KSVTypeSizeSecond:
+                headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 16.5f];
+                headerCell.datePostLabel.font = [UIFont systemFontOfSize: 11.5f];
+                
+            default:
+                break;
+        }
+        
         headerCell.titleNewsLabel.text = self.news.title;
         headerCell.datePostLabel.text = self.news.createdDatePost;
         
@@ -108,6 +182,19 @@
     } else if (indexPath.row == 1) {
         
         KSVDescriptionTableViewCell* descriptionCell = [tableView dequeueReusableCellWithIdentifier:cellDescriptionIdentifier forIndexPath:indexPath];
+        
+        switch (self.countTypeSize) {
+            case KSVTypeSizeStandart:
+                descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 14.f];
+            case KSVTypeSizeFirst:
+                descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 15.f];
+            case KSVTypeSizeSecond:
+                descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 13.f];
+                
+            default:
+                break;
+        }
+
         
         descriptionCell.descriptionLabel.text = self.news.descriptionPost;
         
@@ -119,14 +206,45 @@
         
         KSVNews* news = [self.newsArray objectAtIndex:indexPath.row - 2];
         
+        switch (self.countTypeSize) {
+            case KSVTypeSizeStandart:
+                newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 14.f];
+                newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 12.f];
+            case KSVTypeSizeFirst:
+                newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 15.f];
+                newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 13.f];
+            case KSVTypeSizeSecond:
+                newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 13.f];
+                newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 11.f];
+               
+
+            default:
+                break;
+        }
+
+        
         newsCell.textNewsLabel.text = news.title;
         newsCell.dateNewsLabel.text = news.createdDatePost;
-        [newsCell.newsImageView setImageWithURL:news.urlThumbnail];
+        
+        NSURLRequest* urlRequest = [NSURLRequest requestWithURL:news.urlThumbnail];
+        
+        __weak KSVNewsTableViewCell* weekCell = newsCell;
+        
+        [newsCell.newsImageView setImageWithURLRequest:urlRequest
+                                  placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                      
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                          weekCell.newsImageView.image = image;
+                                      });
+                                  } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                      
+                                  }];
         
         return newsCell;
         
     }
 }
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -142,10 +260,26 @@
     }
 }
 
-
 #pragma mark -Action
 - (void) graphButton {
-    NSLog(@"graphButton");
+    
+    self.countTypeSize = self.countTypeSize + 1;
+    
+    [self.tableView reloadData];
+    
+}
+
+
+- (IBAction)actionInfo:(UIButton *)sender {
+    
+    NSURL *url = self.news.urlImage;
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+}
+
+- (IBAction)actionInfoByPhoto:(UIButton *)sender {
+    
+    NSURL *url = self.news.urlThumbnail;
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 
 @end

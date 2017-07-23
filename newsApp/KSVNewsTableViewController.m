@@ -29,7 +29,7 @@ static NSInteger firstRequestlPage = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.page = 1;
+    self.page = firstRequestlPage;
     
     self.newsArray = [NSMutableArray array];
     
@@ -148,9 +148,8 @@ static NSInteger firstRequestlPage = 1;
     KSVNews* selectedNews = [self.newsArray objectAtIndex:self.selectedIndexPath];
     
     vc.news = selectedNews;
-    vc.newsVc = self;
     vc.title = @"Новости";
-    vc.newsArray = self.newsArray;
+    vc.selectedIndex = self.selectedIndexPath;
 }
 
 #pragma mark - Action

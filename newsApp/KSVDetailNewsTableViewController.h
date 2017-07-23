@@ -11,11 +11,24 @@
 @class KSVNews;
 @class KSVNewsTableViewController;
 
+typedef enum {
+    
+    KSVTypeSizeStandart,
+    KSVTypeSizeFirst,
+    KSVTypeSizeSecond
+    
+}KSVTypeSize;
+
 @interface KSVDetailNewsTableViewController : UITableViewController
 
+- (IBAction)actionInfo:(UIButton *)sender;
+- (IBAction)actionInfoByPhoto:(UIButton *)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *actionInfo;
+@property (weak, nonatomic) IBOutlet UIButton *actionInfoByPhoto;
+
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
-@property (strong, nonatomic) KSVNewsTableViewController* newsVc;
 @property (strong, nonatomic) KSVNews* news;
-@property (strong, nonatomic) NSMutableArray* newsArray;
+@property (assign, nonatomic) NSInteger selectedIndex;
 
 @end

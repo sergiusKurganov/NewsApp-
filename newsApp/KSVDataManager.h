@@ -17,4 +17,8 @@
              OnSuccess:(void(^)(NSArray* newsArray)) success
              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
+//- (void) getDetailNewsPostWhithIdPost:(NSString*) idPost
+//                            OnSuccess:(void(^)(NSArray* detailPostArray)) success
+//                            onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+
 @end

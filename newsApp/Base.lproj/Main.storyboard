@@ -111,21 +111,21 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHeader" rowHeight="120" id="bcn-AE-qX6" customClass="KSVHeaderTableViewCell">
-                                <rect key="frame" x="0.0" y="160" width="414" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHeader" rowHeight="100" id="bcn-AE-qX6" customClass="KSVHeaderTableViewCell">
+                                <rect key="frame" x="0.0" y="160" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bcn-AE-qX6" id="jdW-lo-B2m">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-kK-OuD">
-                                            <rect key="frame" x="16" y="8" width="280" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-kK-OuD">
+                                            <rect key="frame" x="16" y="8" width="280" height="0.0"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17.5"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9M-O4-8ZZ">
-                                            <rect key="frame" x="16" y="37" width="280" height="14.666666666666664"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9M-O4-8ZZ">
+                                            <rect key="frame" x="16" y="16" width="280" height="0.0"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12.5"/>
                                             <color key="textColor" red="0.67835611100000004" green="0.6784747243" blue="0.67834860090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -148,7 +148,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDescription" rowHeight="240" id="HiR-xi-ixx" customClass="KSVDescriptionTableViewCell">
-                                <rect key="frame" x="0.0" y="280" width="414" height="240"/>
+                                <rect key="frame" x="0.0" y="260" width="414" height="240"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HiR-xi-ixx" id="i2t-Rj-1uw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="239.5"/>
@@ -166,12 +166,18 @@
                                             <state key="normal" title="Информация о фото">
                                                 <color key="titleColor" red="0.67835611100000004" green="0.6784747243" blue="0.67834860090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="actionInfoByPhoto:" destination="Oif-Vu-E1A" eventType="touchUpInside" id="DRi-Dz-vMc"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hL-we-cnz">
                                             <rect key="frame" x="260.66666666666669" y="24" width="137" height="30"/>
                                             <state key="normal" title="Сылка на источник">
                                                 <color key="titleColor" red="0.0034805722530000002" green="0.68194508549999999" blue="0.77077329159999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="actionInfo:" destination="Oif-Vu-E1A" eventType="touchUpInside" id="egD-Yc-Rgb"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -191,7 +197,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellNews" rowHeight="150" id="zHM-db-R4R" customClass="KSVNewsTableViewCell">
-                                <rect key="frame" x="0.0" y="520" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="500" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zHM-db-R4R" id="5Hh-zh-d8J">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
@@ -203,15 +209,15 @@
                                                 <constraint firstAttribute="width" secondItem="QGL-eX-CWt" secondAttribute="height" multiplier="1:1" id="ybD-fS-2eY"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B51-av-cd7">
-                                            <rect key="frame" x="16" y="114" width="240" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B51-av-cd7">
+                                            <rect key="frame" x="16" y="135" width="240" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.67835611100000004" green="0.6784747243" blue="0.67834860090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfd-cC-woj">
-                                            <rect key="frame" x="16" y="8.0000000000000018" width="240" height="20.666666666666671"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="99" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfd-cC-woj">
+                                            <rect key="frame" x="16" y="8" width="240" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.67835611100000004" green="0.6784747243" blue="0.67834860090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
