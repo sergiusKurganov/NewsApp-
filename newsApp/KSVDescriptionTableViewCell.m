@@ -8,7 +8,6 @@
 
 #import "KSVDescriptionTableViewCell.h"
 
-
 @implementation KSVDescriptionTableViewCell
 
 - (void)awakeFromNib {
@@ -21,7 +20,5 @@
 
     // Configure the view for the selected state
 }
-
-
 
 @end

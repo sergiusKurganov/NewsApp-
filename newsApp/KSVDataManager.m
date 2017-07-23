@@ -116,8 +116,4 @@ static NSString* headerField = @"X-Token";
 //                            }];} // error (500)
 
     
-    
-    
-
-
 @end

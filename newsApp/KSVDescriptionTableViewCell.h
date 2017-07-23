@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface KSVDescriptionTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

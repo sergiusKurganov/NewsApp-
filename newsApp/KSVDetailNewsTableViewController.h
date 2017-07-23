@@ -13,22 +13,19 @@
 
 typedef enum {
     
-    KSVTypeSizeStandart,
-    KSVTypeSizeFirst,
-    KSVTypeSizeSecond
+    KSVTypeSizeStandart = 1,
+    KSVTypeSizeFirst = 2,
+    KSVTypeSizeSecond = 3
     
 }KSVTypeSize;
 
 @interface KSVDetailNewsTableViewController : UITableViewController
 
-- (IBAction)actionInfo:(UIButton *)sender;
-- (IBAction)actionInfoByPhoto:(UIButton *)sender;
-
-@property (weak, nonatomic) IBOutlet UIButton *actionInfo;
-@property (weak, nonatomic) IBOutlet UIButton *actionInfoByPhoto;
-
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 @property (strong, nonatomic) KSVNews* news;
 @property (assign, nonatomic) NSInteger selectedIndex;
+
+- (IBAction)actionInfo:(UIButton *)sender;
+- (IBAction)actionInfoByPhoto:(UIButton *)sender;
 
 @end

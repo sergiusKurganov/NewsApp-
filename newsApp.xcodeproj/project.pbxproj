@@ -139,6 +139,7 @@
 		29BE7C091F1FD43100DFE34B /* newsApp */ = {
 			isa = PBXGroup;
 			children = (
+				29F7669E1F24ED8000650D5F /* UINavigationBar */,
 				29BE7C3F1F1FE52A00DFE34B /* Cells */,
 				29C2967F1F1FEAE800A9F292 /* DataManager */,
 				29BE7C3D1F1FE47000DFE34B /* Controllers */,
@@ -150,8 +151,6 @@
 				29BE7C181F1FD43100DFE34B /* LaunchScreen.storyboard */,
 				29BE7C1B1F1FD43100DFE34B /* Info.plist */,
 				29BE7C0A1F1FD43100DFE34B /* Supporting Files */,
-				292191061F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.h */,
-				292191071F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m */,
 			);
 			path = newsApp;
 			sourceTree = "<group>";
@@ -222,6 +221,15 @@
 				29C296811F1FEB7000A9F292 /* KSVDataManager.m */,
 			);
 			name = DataManager;
+			sourceTree = "<group>";
+		};
+		29F7669E1F24ED8000650D5F /* UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				292191071F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m */,
+				292191061F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.h */,
+			);
+			name = UINavigationBar;
 			sourceTree = "<group>";
 		};
 		AE4E6B9C50558C1007292388 /* Frameworks */ = {

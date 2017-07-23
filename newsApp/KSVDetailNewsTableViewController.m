@@ -100,6 +100,7 @@ static NSInteger firstRequestlPage = 1;
 }
 
 #pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
@@ -113,9 +114,9 @@ static NSInteger firstRequestlPage = 1;
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat currentPosition = (int)self.newsArray.count + 2;
-    
-    if ((indexPath.row >= currentPosition - 1) && (self.page < totalPage) ) {
+    CGFloat currentPosition = (int)self.newsArray.count + 1;
+  
+    if ((indexPath.row  >= currentPosition ) && (self.page < totalPage) && (indexPath.row > 2)) {
         
         self.page = self.page + 1;
         
@@ -123,7 +124,6 @@ static NSInteger firstRequestlPage = 1;
         
     }
 }
-
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -163,13 +163,17 @@ static NSInteger firstRequestlPage = 1;
             case KSVTypeSizeStandart:
                 headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 17.5f];
                 headerCell.datePostLabel.font = [UIFont systemFontOfSize: 12.5f];
+              
             case KSVTypeSizeFirst:
                 headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 18.5f];
                 headerCell.datePostLabel.font = [UIFont systemFontOfSize: 13.5f];
+                
+                break;
             case KSVTypeSizeSecond:
                 headerCell.titleNewsLabel.font = [UIFont systemFontOfSize: 16.5f];
                 headerCell.datePostLabel.font = [UIFont systemFontOfSize: 11.5f];
                 
+                break;
             default:
                 break;
         }
@@ -186,16 +190,17 @@ static NSInteger firstRequestlPage = 1;
         switch (self.countTypeSize) {
             case KSVTypeSizeStandart:
                 descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 14.f];
+                break;
             case KSVTypeSizeFirst:
                 descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 15.f];
+                break;
             case KSVTypeSizeSecond:
                 descriptionCell.descriptionLabel.font = [UIFont systemFontOfSize: 13.f];
-                
+                break;
             default:
                 break;
         }
 
-        
         descriptionCell.descriptionLabel.text = self.news.descriptionPost;
         
         return descriptionCell;
@@ -210,14 +215,18 @@ static NSInteger firstRequestlPage = 1;
             case KSVTypeSizeStandart:
                 newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 14.f];
                 newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 12.f];
+                break;
             case KSVTypeSizeFirst:
                 newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 15.f];
                 newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 13.f];
+                break;
             case KSVTypeSizeSecond:
                 newsCell.textNewsLabel.font = [UIFont systemFontOfSize: 13.f];
                 newsCell.dateNewsLabel.font = [UIFont systemFontOfSize: 11.f];
-               
-
+                
+                self.countTypeSize = 0;
+                
+                break;
             default:
                 break;
         }
@@ -264,11 +273,8 @@ static NSInteger firstRequestlPage = 1;
 - (void) graphButton {
     
     self.countTypeSize = self.countTypeSize + 1;
-    
     [self.tableView reloadData];
-    
 }
-
 
 - (IBAction)actionInfo:(UIButton *)sender {
     

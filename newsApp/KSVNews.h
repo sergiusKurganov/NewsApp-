@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSString* idNews;
 
 - (id) initWirhServerResponse:(NSDictionary* ) responseObject;
+
 @end
