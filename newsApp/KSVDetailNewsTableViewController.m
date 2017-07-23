@@ -10,6 +10,7 @@
 #import "KSVDescriptionTableViewCell.h"
 #import "KSVHeaderTableViewCell.h"
 #import "KSVNewsTableViewCell.h"
+#import "KSVDetailPost.h"
 #import "KSVDataManager.h"
 #import "KSVNews.h"
 
@@ -19,6 +20,7 @@
 #define NAVBAR_CHANGE_POINT 50
 
 @interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@property (strong, nonatomic) KSVDetailPost* detailPost;
 @property (assign, nonatomic) NSInteger page;
 @property (strong, nonatomic) NSMutableArray* newsArray;
 @property (assign, nonatomic) NSInteger countTypeSize;
@@ -51,22 +53,49 @@ static NSInteger firstRequestlPage = 1;
     
     [self.newsImageView setImageWithURL:self.news.urlImage];
     
+    [self getDetailNewsFromServer:self.news.idNews];
     [self getNewsFromServer:firstRequestlPage];
+    
+   
 }
 
 #pragma MARK - API
+
+- (void) getDetailNewsFromServer:(NSString*) detailNews {
+    
+    [[KSVDataManager sharedManager] getDetailNewsPostWhithIdPost:detailNews
+                                                       OnSuccess:^(KSVDetailPost* detailPost) {
+                                                           
+                                                           self.detailPost = detailPost;
+                                                           [self.tableView reloadData];
+                                                    
+                                                       } onFailure:^(NSError *error, NSInteger statusCode) {
+                                                           
+                                                       }];
+    
+}
 
 - (void) getNewsFromServer:(NSInteger) page {
     
     [[KSVDataManager sharedManager] getNewsWhithPage:page andLimit:totalLimit
                                            OnSuccess:^(NSArray *newsArray) {
+                                               
+               NSMutableArray* arrayTest = [NSMutableArray array];
+               
+               for (KSVNews* news in newsArray) {
                    
-              [self.newsArray  addObjectsFromArray:newsArray];
+                   if (news.idNews != self.detailPost.idDetailPost) {
+                       [arrayTest addObject:news];
+                   }
+               }
+            
+                   
+              [self.newsArray  addObjectsFromArray:arrayTest];
                                                
             
               NSMutableArray* newPath = [NSMutableArray array];
                
-               for (int i = (int)[self.newsArray count] - (int)[newsArray count] ; i < [self.newsArray count]; i++) {
+               for (int i = (int)[self.newsArray count] - (int)[arrayTest count] ; i < [self.newsArray count]; i++) {
                    [newPath addObject:[NSIndexPath indexPathForRow:i + 2 inSection:0]];
                }
                
@@ -86,6 +115,7 @@ static NSInteger firstRequestlPage = 1;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"viewWillAppear %@", self.detailPost);
     [super viewWillAppear:YES];
     self.tableView.delegate = self;
     [self scrollViewDidScroll:self.tableView];
@@ -106,7 +136,7 @@ static NSInteger firstRequestlPage = 1;
     if (indexPath.row == 0) {
         return 100.f;
     } else if (indexPath.row == 1) {
-        return 240.f;
+        return 1100.f;
     } else {
         return 150.f;
     }
@@ -129,7 +159,7 @@ static NSInteger firstRequestlPage = 1;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.row != 0 || indexPath.row != 1){
+    if(indexPath.row > 1){
         
         KSVNews* news = [self.newsArray objectAtIndex:indexPath.row - 2];
         
@@ -137,7 +167,7 @@ static NSInteger firstRequestlPage = 1;
         
         vc.news = news;
         vc.title = @"Новости";
-        vc.selectedIndex = indexPath.row;
+        
         
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -201,7 +231,7 @@ static NSInteger firstRequestlPage = 1;
                 break;
         }
 
-        descriptionCell.descriptionLabel.text = self.news.descriptionPost;
+        descriptionCell.descriptionLabel.text = self.detailPost.text;
         
         return descriptionCell;
         
@@ -278,7 +308,7 @@ static NSInteger firstRequestlPage = 1;
 
 - (IBAction)actionInfo:(UIButton *)sender {
     
-    NSURL *url = self.news.urlImage;
+    NSURL *url = self.detailPost.source;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 

@@ -23,7 +23,7 @@ typedef enum {
 
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 @property (strong, nonatomic) KSVNews* news;
-@property (assign, nonatomic) NSInteger selectedIndex;
+
 
 - (IBAction)actionInfo:(UIButton *)sender;
 - (IBAction)actionInfoByPhoto:(UIButton *)sender;

@@ -19,6 +19,7 @@
 		29BE7C421F1FE55C00DFE34B /* KSVNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BE7C411F1FE55C00DFE34B /* KSVNewsTableViewCell.m */; };
 		29C296821F1FEB7000A9F292 /* KSVDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296811F1FEB7000A9F292 /* KSVDataManager.m */; };
 		29C296891F211B8E00A9F292 /* KSVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C296881F211B8E00A9F292 /* KSVNews.m */; };
+		29ECEF911F252892005D03EE /* KSVDetailPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ECEF901F252892005D03EE /* KSVDetailPost.m */; };
 		29F8E91E1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E91D1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m */; };
 		29F8E9211F22E146001C3155 /* KSVHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E9201F22E146001C3155 /* KSVHeaderTableViewCell.m */; };
 		29F8E9241F22E181001C3155 /* KSVDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8E9231F22E181001C3155 /* KSVDescriptionTableViewCell.m */; };
@@ -70,6 +71,8 @@
 		29C296811F1FEB7000A9F292 /* KSVDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDataManager.m; sourceTree = "<group>"; };
 		29C296871F211B8E00A9F292 /* KSVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVNews.h; sourceTree = "<group>"; };
 		29C296881F211B8E00A9F292 /* KSVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVNews.m; sourceTree = "<group>"; };
+		29ECEF8F1F252892005D03EE /* KSVDetailPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVDetailPost.h; sourceTree = "<group>"; };
+		29ECEF901F252892005D03EE /* KSVDetailPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDetailPost.m; sourceTree = "<group>"; };
 		29F8E91C1F22B6EC001C3155 /* KSVDetailNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVDetailNewsTableViewController.h; sourceTree = "<group>"; };
 		29F8E91D1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSVDetailNewsTableViewController.m; sourceTree = "<group>"; };
 		29F8E91F1F22E146001C3155 /* KSVHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSVHeaderTableViewCell.h; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 			children = (
 				29C296871F211B8E00A9F292 /* KSVNews.h */,
 				29C296881F211B8E00A9F292 /* KSVNews.m */,
+				29ECEF8F1F252892005D03EE /* KSVDetailPost.h */,
+				29ECEF901F252892005D03EE /* KSVDetailPost.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F8E91E1F22B6EC001C3155 /* KSVDetailNewsTableViewController.m in Sources */,
+				29ECEF911F252892005D03EE /* KSVDetailPost.m in Sources */,
 				292191081F23AC8E00EAC7A8 /* UINavigationBar+UINavigationBar_Translocation.m in Sources */,
 				29C296891F211B8E00A9F292 /* KSVNews.m in Sources */,
 				29BE7C121F1FD43100DFE34B /* KSVNewsTableViewController.m in Sources */,

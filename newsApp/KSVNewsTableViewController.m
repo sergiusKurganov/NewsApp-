@@ -17,7 +17,6 @@
 @property (strong, nonatomic) NSMutableArray* newsArray;
 @property (assign, nonatomic) NSInteger* limit;
 @property (assign, nonatomic) NSInteger page;
-@property (assign, nonatomic) NSInteger selectedIndexPath;
 @end
 
 @implementation KSVNewsTableViewController
@@ -45,6 +44,7 @@ static NSInteger firstRequestlPage = 1;
     self.navigationController.navigationBar.barTintColor = color;
     
     [self getNewsFromServer:firstRequestlPage];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -99,10 +99,17 @@ static NSInteger firstRequestlPage = 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-      self.selectedIndexPath = indexPath.row;
+    KSVNews* selectedNews = [self.newsArray objectAtIndex: indexPath.row];
     
-      [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    KSVDetailNewsTableViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"KSVNewsTableViewController"];
+    
+    vc.news = selectedNews;
+    vc.title = @"Новости";
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -138,18 +145,6 @@ static NSInteger firstRequestlPage = 1;
                               }];
     
     return cell;
-}
-
-#pragma mark - Segue
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    KSVDetailNewsTableViewController* vc = [segue destinationViewController];
-    KSVNews* selectedNews = [self.newsArray objectAtIndex:self.selectedIndexPath];
-    
-    vc.news = selectedNews;
-    vc.title = @"Новости";
-    vc.selectedIndex = self.selectedIndexPath;
 }
 
 #pragma mark - Action

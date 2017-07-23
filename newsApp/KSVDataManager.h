@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class KSVDetailPost;
 @interface KSVDataManager : NSObject
 
 + (KSVDataManager*) sharedManager;
@@ -17,8 +17,8 @@
              OnSuccess:(void(^)(NSArray* newsArray)) success
              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
-//- (void) getDetailNewsPostWhithIdPost:(NSString*) idPost
-//                            OnSuccess:(void(^)(NSArray* detailPostArray)) success
-//                            onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
+- (void) getDetailNewsPostWhithIdPost:(NSString*) idPost
+                            OnSuccess:(void(^)(KSVDetailPost* detailPost)) success
+                            onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure;
 
 @end

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface KSVHeaderTableViewCell : UITableViewCell  
 
 @property (weak, nonatomic) IBOutlet UILabel *titleNewsLabel;
