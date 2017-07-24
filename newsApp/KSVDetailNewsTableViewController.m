@@ -25,7 +25,6 @@
 @property (strong, nonatomic) NSMutableArray* newsArray;
 @property (assign, nonatomic) NSInteger countTypeSize;
 
-
 @end
 
 @implementation KSVDetailNewsTableViewController
@@ -317,19 +316,6 @@ static NSInteger firstRequestlPage = 1;
     self.countTypeSize = self.countTypeSize + 1;
     [self.tableView reloadData];
 }
-
-//- (IBAction)actionInfo:(UIButton *)sender {
-//    
-//    NSURL *url = self.detailPost.source;
-//    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-//}
-//
-//- (IBAction)actionInfoByPhoto:(UIButton *)sender {
-//    
-//    NSURL *url = self.news.urlThumbnail;
-//    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-//}
-//
 
 - (void)photoPostAction:(UIButton *)sender {
     
