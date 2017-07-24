@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol KSVDescriptionTableViewCellDelegate;
 
 @interface KSVDescriptionTableViewCell : UITableViewCell
 
+
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UIButton *infoByImageButton;
-@property (weak, nonatomic) IBOutlet UIButton *infoByNewsButton;
+@property (weak, nonatomic) id<KSVDescriptionTableViewCellDelegate> delegate;
+
+@end
+
+@protocol KSVDescriptionTableViewCellDelegate <NSObject>
+
+@required
+
+- (IBAction)sourcePostAction:(UIButton *)sender;
+- (IBAction)photoPostAction:(UIButton *)sender;
 
 @end

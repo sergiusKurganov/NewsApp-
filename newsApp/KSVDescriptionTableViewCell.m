@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)sourcePostAction:(UIButton *)sender {
+    
+    [self.delegate sourcePostAction:sender];
+}
+
+- (IBAction)photoPostAction:(UIButton *)sender {
+    
+    [self.delegate sourcePostAction:sender];
+
+}
 @end

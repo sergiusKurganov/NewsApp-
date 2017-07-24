@@ -146,14 +146,14 @@
                                     <outlet property="titleNewsLabel" destination="hxr-kK-OuD" id="qiN-D8-AKp"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDescription" rowHeight="1100" id="HiR-xi-ixx" customClass="KSVDescriptionTableViewCell">
-                                <rect key="frame" x="0.0" y="260" width="414" height="1100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDescription" rowHeight="111" id="HiR-xi-ixx" customClass="KSVDescriptionTableViewCell">
+                                <rect key="frame" x="0.0" y="260" width="414" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HiR-xi-ixx" id="i2t-Rj-1uw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1099.6666666666667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-U0-kFD">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-U0-kFD">
                                             <rect key="frame" x="16" y="12" width="382" height="0.0"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -166,7 +166,7 @@
                                                 <color key="titleColor" red="0.67835611100000004" green="0.6784747243" blue="0.67834860090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="actionInfoByPhoto:" destination="Oif-Vu-E1A" eventType="touchUpInside" id="DRi-Dz-vMc"/>
+                                                <action selector="photoPostAction:" destination="HiR-xi-ixx" eventType="touchUpInside" id="M5m-rq-9Ag"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hL-we-cnz">
@@ -175,28 +175,28 @@
                                                 <color key="titleColor" red="0.0034805722530000002" green="0.68194508549999999" blue="0.77077329159999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="actionInfo:" destination="Oif-Vu-E1A" eventType="touchUpInside" id="egD-Yc-Rgb"/>
+                                                <action selector="sourcePostAction:" destination="HiR-xi-ixx" eventType="touchUpInside" id="7Pz-fx-BkG"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3hL-we-cnz" firstAttribute="top" secondItem="kcj-U0-kFD" secondAttribute="bottom" constant="12" id="46A-R0-SUF"/>
+                                        <constraint firstItem="3hL-we-cnz" firstAttribute="top" secondItem="kcj-U0-kFD" secondAttribute="bottom" constant="12" id="BJH-F9-2ep"/>
                                         <constraint firstItem="kcj-U0-kFD" firstAttribute="leading" secondItem="i2t-Rj-1uw" secondAttribute="leadingMargin" constant="8" id="aL6-ey-2aO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="kcj-U0-kFD" secondAttribute="trailing" constant="8" id="bZm-UC-MPr"/>
                                         <constraint firstItem="kcj-U0-kFD" firstAttribute="top" secondItem="i2t-Rj-1uw" secondAttribute="topMargin" constant="4" id="bjK-t9-bjy"/>
                                         <constraint firstItem="dMk-T8-zSM" firstAttribute="top" secondItem="3hL-we-cnz" secondAttribute="bottom" constant="18" id="jND-uU-3EZ"/>
                                         <constraint firstItem="3hL-we-cnz" firstAttribute="trailing" secondItem="dMk-T8-zSM" secondAttribute="trailing" id="qdf-mD-rmx"/>
                                         <constraint firstItem="3hL-we-cnz" firstAttribute="trailing" secondItem="kcj-U0-kFD" secondAttribute="trailing" id="tqS-wg-1jj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dMk-T8-zSM" secondAttribute="bottom" constant="4.6699999999999999" id="v1e-zO-Vz9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="kcj-U0-kFD" id="XMB-yu-fNV"/>
-                                    <outlet property="infoByImageButton" destination="dMk-T8-zSM" id="u1n-Cd-mZq"/>
-                                    <outlet property="infoByNewsButton" destination="3hL-we-cnz" id="O7Q-Mn-8VA"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellNews" rowHeight="150" id="zHM-db-R4R" customClass="KSVNewsTableViewCell">
-                                <rect key="frame" x="0.0" y="1360" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="371" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zHM-db-R4R" id="5Hh-zh-d8J">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>

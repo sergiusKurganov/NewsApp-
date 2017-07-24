@@ -25,7 +25,5 @@ typedef enum {
 @property (strong, nonatomic) KSVNews* news;
 
 
-- (IBAction)actionInfo:(UIButton *)sender;
-- (IBAction)actionInfoByPhoto:(UIButton *)sender;
 
 @end

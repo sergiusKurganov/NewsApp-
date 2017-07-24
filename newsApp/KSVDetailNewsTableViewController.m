@@ -19,11 +19,12 @@
 
 #define NAVBAR_CHANGE_POINT 50
 
-@interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface KSVDetailNewsTableViewController () <UITableViewDataSource, UITableViewDelegate, KSVDescriptionTableViewCellDelegate>
 @property (strong, nonatomic) KSVDetailPost* detailPost;
 @property (assign, nonatomic) NSInteger page;
 @property (strong, nonatomic) NSMutableArray* newsArray;
 @property (assign, nonatomic) NSInteger countTypeSize;
+
 
 @end
 
@@ -35,6 +36,8 @@ static NSInteger firstRequestlPage = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     self.page = firstRequestlPage;
     self.countTypeSize = KSVTypeSizeStandart;
@@ -115,28 +118,35 @@ static NSInteger firstRequestlPage = 1;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"viewWillAppear %@", self.detailPost);
     [super viewWillAppear:YES];
-    self.tableView.delegate = self;
     [self scrollViewDidScroll:self.tableView];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+   
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    self.tableView.delegate = nil;
     [self.navigationController.navigationBar lt_reset];
 }
 
 #pragma mark - UITableViewDelegate
+
+- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 1) {
+        return 1300.f;
+    } else {
+        return 150.0f;
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
         return 100.f;
     } else if (indexPath.row == 1) {
-        return 1100.f;
+        return UITableViewAutomaticDimension;
     } else {
         return 150.f;
     }
@@ -216,6 +226,8 @@ static NSInteger firstRequestlPage = 1;
     } else if (indexPath.row == 1) {
         
         KSVDescriptionTableViewCell* descriptionCell = [tableView dequeueReusableCellWithIdentifier:cellDescriptionIdentifier forIndexPath:indexPath];
+        
+        descriptionCell.delegate = self;
         
         switch (self.countTypeSize) {
             case KSVTypeSizeStandart:
@@ -306,16 +318,28 @@ static NSInteger firstRequestlPage = 1;
     [self.tableView reloadData];
 }
 
-- (IBAction)actionInfo:(UIButton *)sender {
-    
-    NSURL *url = self.detailPost.source;
-    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-}
+//- (IBAction)actionInfo:(UIButton *)sender {
+//    
+//    NSURL *url = self.detailPost.source;
+//    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+//}
+//
+//- (IBAction)actionInfoByPhoto:(UIButton *)sender {
+//    
+//    NSURL *url = self.news.urlThumbnail;
+//    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+//}
+//
 
-- (IBAction)actionInfoByPhoto:(UIButton *)sender {
+- (void)photoPostAction:(UIButton *)sender {
     
     NSURL *url = self.news.urlThumbnail;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+    
 }
 
+- (void)sourcePostAction:(UIButton *)sender {
+    NSURL *url = self.news.urlImage;
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+}
 @end
