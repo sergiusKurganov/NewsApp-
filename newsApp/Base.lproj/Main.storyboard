@@ -170,8 +170,8 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hL-we-cnz">
-                                            <rect key="frame" x="260.66666666666669" y="24" width="137" height="30"/>
-                                            <state key="normal" title="Сылка на источник">
+                                            <rect key="frame" x="252.66666666666669" y="24" width="145.00000000000006" height="30"/>
+                                            <state key="normal" title="Сcылка на источник">
                                                 <color key="titleColor" red="0.0034805722530000002" green="0.68194508549999999" blue="0.77077329159999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>

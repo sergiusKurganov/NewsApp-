@@ -319,13 +319,13 @@ static NSInteger firstRequestlPage = 1;
 
 - (void)photoPostAction:(UIButton *)sender {
     
-    NSURL *url = self.news.urlThumbnail;
+    NSURL *url = self.news.urlImage;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
     
 }
 
 - (void)sourcePostAction:(UIButton *)sender {
-    NSURL *url = self.news.urlImage;
+    NSURL *url = self.detailPost.source;
     [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
 }
 @end
